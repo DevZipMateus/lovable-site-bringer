@@ -20,7 +20,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-10 min-h-[72px] py-2 flex items-center justify-between">
         <div className="flex items-center gap-4 shrink-0">
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="h-14 overflow-hidden flex items-center">
+            <div className="h-16 overflow-hidden flex items-center">
               <img 
                 src={logo} 
                 alt="MBITTENCOURT Logo" 
