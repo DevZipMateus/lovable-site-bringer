@@ -301,11 +301,11 @@ const Home = () => {
             <div className="space-y-8 mb-12">
               <div className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all glow-card">
                 <div className="flex flex-col lg:flex-row">
-                  <div className="relative lg:w-2/5 aspect-video lg:aspect-auto overflow-hidden">
+                  <div className="relative lg:w-2/5 aspect-video lg:aspect-auto overflow-hidden bg-card/50">
                     <img 
                       src={productGuide}
                       alt="Guia-Isolante para PCB de alta qualidade" 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-background/50 to-transparent lg:hidden"></div>
                   </div>
