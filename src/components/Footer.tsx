@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
           <div className="flex flex-col items-center md:items-start gap-3">
             <Link to="/" className="group">
-              <div className="h-12 overflow-hidden flex items-center">
+              <div className="h-14 overflow-hidden flex items-center">
                 <img 
                   src={logo} 
                   alt="MBITTENCOURT Logo" 
