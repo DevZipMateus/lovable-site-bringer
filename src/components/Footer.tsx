@@ -11,11 +11,13 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
           <div className="flex flex-col items-center md:items-start gap-3">
             <Link to="/" className="group">
-              <img 
-                src={logo} 
-                alt="MBITTENCOURT Logo" 
-                className="h-12 w-auto brightness-0 invert transition-all group-hover:scale-105"
-              />
+              <div className="h-12 overflow-hidden flex items-center">
+                <img 
+                  src={logo} 
+                  alt="MBITTENCOURT Logo" 
+                  className="h-20 w-auto brightness-0 invert transition-all group-hover:scale-105 object-contain"
+                />
+              </div>
             </Link>
             <p className="text-muted-foreground text-sm">Suprimentos de Informática LTDA</p>
             <p className="text-muted-foreground text-xs">Desde 1996 | Rio de Janeiro, Brasil</p>
