@@ -10,10 +10,12 @@ import productExtractor from '@/assets/product-extractor.jpg';
 import productAccessories from '@/assets/product-accessories.jpg';
 import productService from '@/assets/product-service.jpg';
 import guiaTechnicalSpecs from '@/assets/guia-technical-specs.jpg';
+import extractorTechnicalSpecs from '@/assets/extractor-technical-specs.gif';
 
 const Home = () => {
   const [activeFilter, setActiveFilter] = useState('Todos');
   const [showGuiaSpecs, setShowGuiaSpecs] = useState(false);
+  const [showExtractorSpecs, setShowExtractorSpecs] = useState(false);
   const { toast } = useToast();
   const filters = ['Todos', 'Guias-Isolantes', 'Extratores', 'Acessórios'];
   const whatsappLink = "https://wa.me/552125683966?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20MBITTENCOURT.";
@@ -398,7 +400,10 @@ const Home = () => {
                       </div>
                     </div>
                     
-                    <button className="flex items-center justify-center h-12 px-6 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-lg transition-all shadow-lg hover:shadow-primary/30">
+                    <button 
+                      onClick={() => setShowExtractorSpecs(true)}
+                      className="flex items-center justify-center h-12 px-6 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-lg transition-all shadow-lg hover:shadow-primary/30"
+                    >
                       Saiba Mais
                     </button>
                   </div>
@@ -669,6 +674,29 @@ const Home = () => {
                 <img
                   src={guiaTechnicalSpecs}
                   alt="Especificações Técnicas - Guias Isolantes AC101/AC102/AC103/AC104"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
+
+        {/* Extractor Technical Specs Dialog */}
+        <Dialog open={showExtractorSpecs} onOpenChange={setShowExtractorSpecs}>
+          <DialogContent className="max-w-3xl max-h-[90vh] p-0 overflow-hidden">
+            <DialogTitle className="sr-only">Especificações Técnicas - Extrator AC201</DialogTitle>
+            <div className="relative w-full h-full">
+              <button
+                onClick={() => setShowExtractorSpecs(false)}
+                className="absolute top-4 right-4 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm border border-border hover:bg-background transition-all"
+                aria-label="Fechar"
+              >
+                <X size={20} />
+              </button>
+              <div className="overflow-auto max-h-[90vh] p-6">
+                <img
+                  src={extractorTechnicalSpecs}
+                  alt="Especificações Técnicas - Extrator AC201"
                   className="w-full h-auto"
                 />
               </div>
