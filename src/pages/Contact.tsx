@@ -158,10 +158,16 @@ const Contact = () => {
 
         {/* Map */}
         <div className="relative rounded-2xl overflow-hidden border border-border aspect-[21/9] glow-card">
-          <img 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxTbnOzIbep8IXvm3wrVjHdhUlHLcC14NoSKqSyATqE31c0ZuUdi86Wy_EvLCBgMMcXM-Tm13pOMjr74MIHwHqjdIKdLwb9vfeBwnFD30e8ObDZcbBaHwYHx9q8RPCrVHeaAaZ1tZGnyXpyMQWgmx2i9wf4pQPzRsFmv0rXI7kAhM5gSee41cGg_-lhiwAHU50UdOCzizDuDAMyo_8bzC6MWlFbuijDR_bf67nvAmICXKKlxtHrm1ZEvxjS9v-bLArtxKaymMdTmfb"
-            alt="Localização da MBITTENCOURT no mapa" 
-            className="w-full h-full object-cover"
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.8193829247287!2d-43.231!3d-22.9213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997e5e3c5c5c5c5c%3A0x5c5c5c5c5c5c5c5c!2sRua%20Haddock%20Lobo%2C%20200%20-%20Tijuca%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2020260-132!5e0!3m2!1spt-BR!2sbr!4v1234567890!5m2!1spt-BR!2sbr"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen={false}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Localização da MBITTENCOURT no Google Maps"
+            className="absolute inset-0"
           />
         </div>
       </div>
