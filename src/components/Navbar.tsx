@@ -23,7 +23,7 @@ const Navbar = () => {
             <img 
               src={logo} 
               alt="MBITTENCOURT Logo" 
-              className="h-10 w-auto brightness-0 invert transition-all group-hover:scale-105"
+              className="h-28 w-auto brightness-0 invert transition-all group-hover:scale-105"
             />
           </Link>
         </div>
