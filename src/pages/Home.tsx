@@ -45,7 +45,7 @@ const Home = () => {
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-10 py-20">
             <div className="max-w-4xl">
-              <div className="mb-8">
+              <div className="mb-8 flex justify-center">
                 <img 
                   src={logo}
                   alt="MBITTENCOURT Logo" 
