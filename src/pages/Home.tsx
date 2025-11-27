@@ -1,62 +1,121 @@
 import { Link } from 'react-router-dom';
+import { Shield, Package, TruckIcon } from 'lucide-react';
+import heroImage from '@/assets/hero-tech.jpg';
 
 const Home = () => {
   return (
-    <main className="flex flex-1 mx-auto w-full min-w-0 py-5 px-4 sm:px-10">
-      <div className="layout-content-container flex flex-col w-full max-w-7xl flex-1">
-        <section className="flex flex-col gap-12 md:gap-16 lg:gap-20 py-8 md:py-16">
-          
-          {/* HeroSection */}
-          <div className="@container">
-            <div className="@[480px]:px-0">
-              <div 
-                className="flex min-h-[350px] sm:min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end px-6 pb-10 sm:px-10 shadow-2xl" 
-                style={{backgroundImage: 'linear-gradient(rgba(16, 22, 34, 0.2) 0%, rgb(16, 22, 34) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBw13y4UZxxeGxy5v61_wAH5FsUbgpYq8uRJL0H-3NsbxhWazoO0wUPOjsADxZyFcZhvlIDzz4D_5pVzuvt_0DAYQXW3kzbp3CuhkeTvoZYgYyi9ZSOiTN7PvO5qNwdYBzV-B5nCgw7TGmnvvXLAaH8RRdTQCJt1jDh1HftnwPCtQaH3emsdwFROwPsvTauHWiUr78UoySx7GCAYP2mHZlCFF3cKTc9ngM4TqXtA5mO8OLpTwySFxTAUd7YD3YzveGtZwQUqPbBD28w")'}}
-              >
-                <div className="flex flex-col gap-4 text-left max-w-3xl">
-                  <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em] break-words">
-                    Sua fonte segura e confiável de suprimentos de informática
-                  </h1>
-                  <h2 className="text-gray-300 text-base sm:text-lg font-normal leading-normal break-words">
-                    Compre com facilidade e a segurança que você merece
-                  </h2>
-                </div>
+    <main className="flex flex-1 mx-auto w-full min-w-0">
+      <div className="flex flex-col w-full flex-1">
+        {/* Hero Section with parallax effect */}
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+          {/* Background with overlay */}
+          <div className="absolute inset-0">
+            <img 
+              src={heroImage}
+              alt="Tecnologia de ponta em circuitos impressos" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background"></div>
+          </div>
+
+          {/* Animated gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5"></div>
+
+          {/* Content */}
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-10 py-20">
+            <div className="max-w-4xl">
+              <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
+                <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                <span className="text-sm font-medium text-primary">Mais de 25 anos de excelência</span>
+              </div>
+              
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight mb-6 animate-fade-in">
+                <span className="text-foreground">Sua fonte </span>
+                <span className="text-gradient">segura e confiável</span>
+                <span className="text-foreground"> de suprimentos de informática</span>
+              </h1>
+              
+              <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed">
+                Compre com facilidade e a segurança que você merece. Soluções inovadoras para circuitos impressos.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/produtos">
-                  <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center rounded-lg min-h-[48px] h-auto py-3 px-6 bg-primary text-primary-foreground text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors shadow-lg">
-                    <span className="text-center whitespace-normal">Ver Produtos</span>
+                  <button className="group flex items-center justify-center gap-2 min-w-[180px] h-14 px-8 bg-primary hover:bg-primary/90 text-primary-foreground text-base font-bold rounded-lg transition-all shadow-lg hover:shadow-primary/30 hover:shadow-xl hover:scale-105">
+                    <span>Ver Produtos</span>
+                    <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </button>
+                </Link>
+                
+                <Link to="/sobre">
+                  <button className="flex items-center justify-center min-w-[180px] h-14 px-8 bg-card hover:bg-card/80 text-foreground border border-border text-base font-semibold rounded-lg transition-all hover:scale-105">
+                    Sobre Nós
                   </button>
                 </Link>
               </div>
             </div>
           </div>
 
-          {/* Features Section */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="flex flex-col items-center text-center gap-4 p-6 bg-card/50 rounded-xl border border-border hover:bg-card transition-colors">
-              <div className="flex items-center justify-center size-12 bg-primary/20 rounded-full text-primary">
-                <span className="material-symbols-outlined">shield</span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <h3 className="text-foreground font-bold text-lg">Compra 100% Segura</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">Seus dados protegidos do início ao fim da sua compra.</p>
-              </div>
+          {/* Scroll indicator */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <div className="w-6 h-10 rounded-full border-2 border-primary/50 flex items-start justify-center p-2">
+              <div className="w-1 h-2 rounded-full bg-primary animate-pulse"></div>
             </div>
-            <div className="flex flex-col items-center text-center gap-4 p-6 bg-card/50 rounded-xl border border-border hover:bg-card transition-colors">
-              <div className="flex items-center justify-center size-12 bg-primary/20 rounded-full text-primary">
-                <span className="material-symbols-outlined">inventory_2</span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <h3 className="text-foreground font-bold text-lg">Catálogo Completo</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">As melhores marcas e a maior variedade de produtos para você.</p>
-              </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="relative py-24 px-4 sm:px-10">
+          <div className="absolute inset-0 gradient-radial opacity-50"></div>
+          
+          <div className="relative z-10 max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl sm:text-4xl font-black mb-4 text-foreground">Por que escolher a MBITTENCOURT?</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Compromisso com qualidade, segurança e atendimento excepcional
+              </p>
             </div>
-            <div className="flex flex-col items-center text-center gap-4 p-6 bg-card/50 rounded-xl border border-border sm:col-span-2 lg:col-span-1 hover:bg-card transition-colors">
-              <div className="flex items-center justify-center size-12 bg-primary/20 rounded-full text-primary">
-                <span className="material-symbols-outlined">local_shipping</span>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="group relative p-8 rounded-2xl bg-card/50 border border-border hover:border-primary/50 transition-all hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative">
+                  <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 text-primary mb-6 group-hover:scale-110 transition-transform">
+                    <Shield size={28} />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-foreground">Compra 100% Segura</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Seus dados protegidos do início ao fim da sua compra com tecnologia de ponta em segurança.
+                  </p>
+                </div>
               </div>
-              <div className="flex flex-col gap-1">
-                <h3 className="text-foreground font-bold text-lg">Entrega para todo o Brasil</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">Receba seus produtos com agilidade e segurança onde estiver.</p>
+
+              <div className="group relative p-8 rounded-2xl bg-card/50 border border-border hover:border-primary/50 transition-all hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative">
+                  <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 text-primary mb-6 group-hover:scale-110 transition-transform">
+                    <Package size={28} />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-foreground">Catálogo Completo</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    As melhores marcas e a maior variedade de produtos especializados para suas necessidades.
+                  </p>
+                </div>
+              </div>
+
+              <div className="group relative p-8 rounded-2xl bg-card/50 border border-border hover:border-primary/50 transition-all hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative">
+                  <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 text-primary mb-6 group-hover:scale-110 transition-transform">
+                    <TruckIcon size={28} />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-foreground">Entrega Nacional</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Receba seus produtos com agilidade e segurança em qualquer lugar do Brasil.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
