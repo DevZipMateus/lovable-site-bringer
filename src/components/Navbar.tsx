@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, MessageCircle } from 'lucide-react';
+import logo from '@/assets/logo.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,14 +20,11 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-10 min-h-[72px] py-2 flex items-center justify-between">
         <div className="flex items-center gap-4 shrink-0">
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="size-8 text-primary shrink-0 transition-transform group-hover:scale-110">
-              <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                <path d="M24 4C25.7818 14.2173 33.7827 22.2182 44 24C33.7827 25.7818 25.7818 33.7827 24 44C22.2182 33.7827 14.2173 25.7818 4 24C14.2173 22.2182 22.2182 14.2173 24 4Z" fill="currentColor"></path>
-              </svg>
-            </div>
-            <span className="text-foreground text-xl font-bold leading-tight tracking-tight transition-colors group-hover:text-primary">
-              MBITTENCOURT
-            </span>
+            <img 
+              src={logo} 
+              alt="MBITTENCOURT Logo" 
+              className="h-10 w-auto brightness-0 invert transition-all group-hover:scale-105"
+            />
           </Link>
         </div>
         

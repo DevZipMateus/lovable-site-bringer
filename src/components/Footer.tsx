@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Linkedin } from 'lucide-react';
+import logo from '@/assets/logo.png';
 
 const Footer = () => {
   return (
@@ -9,15 +10,12 @@ const Footer = () => {
       <div className="relative max-w-7xl mx-auto w-full px-4 sm:px-10">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
           <div className="flex flex-col items-center md:items-start gap-3">
-            <Link to="/" className="flex items-center gap-3 group">
-              <div className="size-6 text-primary transition-transform group-hover:scale-110">
-                <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M24 4C25.7818 14.2173 33.7827 22.2182 44 24C33.7827 25.7818 25.7818 33.7827 24 44C22.2182 33.7827 14.2173 25.7818 4 24C14.2173 22.2182 22.2182 14.2173 24 4Z" fill="currentColor"></path>
-                </svg>
-              </div>
-              <h2 className="text-foreground text-xl font-black group-hover:text-primary transition-colors">
-                MBITTENCOURT
-              </h2>
+            <Link to="/" className="group">
+              <img 
+                src={logo} 
+                alt="MBITTENCOURT Logo" 
+                className="h-12 w-auto brightness-0 invert transition-all group-hover:scale-105"
+              />
             </Link>
             <p className="text-muted-foreground text-sm">Suprimentos de Informática LTDA</p>
             <p className="text-muted-foreground text-xs">Desde 1996 | Rio de Janeiro, Brasil</p>
