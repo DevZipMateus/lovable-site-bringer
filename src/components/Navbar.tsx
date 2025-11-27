@@ -9,10 +9,10 @@ const Navbar = () => {
   const whatsappLink = "https://wa.me/552125683966?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20a%20MBITTENCOURT.";
 
   const navLinks = [
-    { name: 'Início', to: '/' },
-    { name: 'Produtos', to: '/produtos' },
-    { name: 'Sobre Nós', to: '/sobre' },
-    { name: 'Contato', to: '/contato' },
+    { name: 'Início', href: '#inicio' },
+    { name: 'Produtos', href: '#produtos' },
+    { name: 'Sobre Nós', href: '#sobre' },
+    { name: 'Contato', href: '#contato' },
   ];
 
   return (
@@ -32,14 +32,14 @@ const Navbar = () => {
         <nav className="hidden md:flex flex-1 justify-end gap-8 items-center">
           <div className="flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link 
+              <a 
                 key={link.name} 
-                to={link.to} 
+                href={link.href} 
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
               >
                 {link.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
-              </Link>
+              </a>
             ))}
           </div>
           <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
@@ -64,14 +64,14 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="absolute top-full left-0 w-full bg-background/95 backdrop-blur-xl border-b border-border/50 p-4 flex flex-col gap-4 md:hidden shadow-2xl z-50 animate-fade-in">
           {navLinks.map((link) => (
-            <Link 
+            <a 
               key={link.name} 
-              to={link.to} 
+              href={link.href} 
               onClick={() => setIsMenuOpen(false)}
               className="text-base font-medium text-foreground hover:text-primary transition-colors p-3 rounded-lg hover:bg-card"
             >
               {link.name}
-            </Link>
+            </a>
           ))}
           <a href={whatsappLink} target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>
             <button className="w-full flex items-center justify-center gap-2 min-h-[48px] bg-primary text-primary-foreground rounded-lg font-semibold text-base hover:bg-primary/90 transition-colors py-3 shadow-lg">
