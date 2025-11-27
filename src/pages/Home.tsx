@@ -1,16 +1,19 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, Package, TruckIcon, Flag, TrendingUp, Award, ShieldCheck, Clock, DollarSign, MessageCircle, Wrench, CheckCircle, Zap, Construction, Settings, MapPin, Phone, Mail, Send } from 'lucide-react';
+import { Shield, Package, TruckIcon, Flag, TrendingUp, Award, ShieldCheck, Clock, DollarSign, MessageCircle, Wrench, CheckCircle, Zap, Construction, Settings, MapPin, Phone, Mail, Send, X } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import heroImage from '@/assets/hero-tech.jpg';
 import aboutImage from '@/assets/about-manufacturing.jpg';
 import productGuide from '@/assets/product-guide.gif';
 import productExtractor from '@/assets/product-extractor.jpg';
 import productAccessories from '@/assets/product-accessories.jpg';
 import productService from '@/assets/product-service.jpg';
+import guiaTechnicalSpecs from '@/assets/guia-technical-specs.jpg';
 
 const Home = () => {
   const [activeFilter, setActiveFilter] = useState('Todos');
+  const [showGuiaSpecs, setShowGuiaSpecs] = useState(false);
   const { toast } = useToast();
   const filters = ['Todos', 'Guias-Isolantes', 'Extratores', 'Acessórios'];
   const whatsappLink = "https://wa.me/552125683966?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20MBITTENCOURT.";
@@ -342,7 +345,10 @@ const Home = () => {
                       </div>
                     </div>
                     
-                    <button className="flex items-center justify-center h-12 px-6 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-lg transition-all shadow-lg hover:shadow-primary/30">
+                    <button 
+                      onClick={() => setShowGuiaSpecs(true)}
+                      className="flex items-center justify-center h-12 px-6 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-lg transition-all shadow-lg hover:shadow-primary/30"
+                    >
                       Saiba Mais
                     </button>
                   </div>
@@ -646,6 +652,29 @@ const Home = () => {
             </div>
           </div>
         </section>
+
+        {/* Technical Specs Dialog */}
+        <Dialog open={showGuiaSpecs} onOpenChange={setShowGuiaSpecs}>
+          <DialogContent className="max-w-5xl max-h-[90vh] p-0 overflow-hidden">
+            <DialogTitle className="sr-only">Especificações Técnicas - Guia Isolante</DialogTitle>
+            <div className="relative w-full h-full">
+              <button
+                onClick={() => setShowGuiaSpecs(false)}
+                className="absolute top-4 right-4 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm border border-border hover:bg-background transition-all"
+                aria-label="Fechar"
+              >
+                <X size={20} />
+              </button>
+              <div className="overflow-auto max-h-[90vh] p-6">
+                <img
+                  src={guiaTechnicalSpecs}
+                  alt="Especificações Técnicas - Guias Isolantes AC101/AC102/AC103/AC104"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
     </main>
   );
