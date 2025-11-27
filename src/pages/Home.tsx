@@ -7,8 +7,6 @@ import heroImage from '@/assets/hero-tech.jpg';
 import aboutImage from '@/assets/about-manufacturing.jpg';
 import productGuide from '@/assets/product-guide.gif';
 import productExtractor from '@/assets/product-extractor.jpg';
-import productAccessories from '@/assets/product-accessories.jpg';
-import productService from '@/assets/product-service.jpg';
 import guiaTechnicalSpecs from '@/assets/guia-technical-specs.jpg';
 import extractorTechnicalSpecs from '@/assets/extractor-technical-specs.gif';
 
@@ -17,7 +15,7 @@ const Home = () => {
   const [showGuiaSpecs, setShowGuiaSpecs] = useState(false);
   const [showExtractorSpecs, setShowExtractorSpecs] = useState(false);
   const { toast } = useToast();
-  const filters = ['Todos', 'Guias-Isolantes', 'Extratores', 'Acessórios'];
+  const filters = ['Todos', 'Guias-Isolantes', 'Extratores'];
   const whatsappLink = "https://wa.me/552125683966?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20MBITTENCOURT.";
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -411,51 +409,6 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-              <div className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all glow-card">
-                <div className="relative aspect-video overflow-hidden">
-                  <img 
-                    src={productAccessories}
-                    alt="Componentes e acessórios eletrônicos" 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="mb-2 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
-                    Acessórios
-                  </div>
-                  <h4 className="text-xl font-black mb-3 text-foreground">Componentes e Acessórios</h4>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Tudo o que você precisa para uma montagem eletrônica completa e segura.
-                  </p>
-                  <button className="flex items-center justify-center w-full h-11 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg transition-all">
-                    Ver Acessórios
-                  </button>
-                </div>
-              </div>
-
-              <div className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all glow-card">
-                <div className="relative aspect-video overflow-hidden">
-                  <img 
-                    src={productService}
-                    alt="Serviços de montagem especializada" 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="mb-2 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
-                    Serviços
-                  </div>
-                  <h4 className="text-xl font-black mb-3 text-foreground">Montagem Especializada</h4>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Serviços de montagem e consultoria para otimizar seu processo produtivo.
-                  </p>
-                  <button className="flex items-center justify-center w-full h-11 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg transition-all">
-                    Nossos Serviços
-                  </button>
-                </div>
-              </div>
-            </div>
 
             <div className="relative rounded-3xl overflow-hidden glow-card text-center">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent"></div>
