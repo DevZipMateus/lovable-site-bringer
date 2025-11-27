@@ -1,4 +1,9 @@
 import { useState } from 'react';
+import { Wrench, Shield, CheckCircle, Zap, Construction, Settings, MessageCircle } from 'lucide-react';
+import productGuide from '@/assets/product-guide.jpg';
+import productExtractor from '@/assets/product-extractor.jpg';
+import productAccessories from '@/assets/product-accessories.jpg';
+import productService from '@/assets/product-service.jpg';
 
 const Products = () => {
   const [activeFilter, setActiveFilter] = useState('Todos');
@@ -7,99 +12,144 @@ const Products = () => {
   const whatsappLink = "https://wa.me/552125683966?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20a%20MBITTENCOURT%20sobre%20os%20produtos.";
 
   return (
-    <main className="flex flex-1 mx-auto w-full min-w-0 px-4 sm:px-10 py-5 font-grotesk">
-      <div className="layout-content-container flex flex-col max-w-7xl flex-1">
+    <main className="flex flex-1 mx-auto w-full min-w-0 py-10 px-4 sm:px-10 font-grotesk">
+      <div className="max-w-7xl mx-auto flex-1 w-full">
         
-        {/* PageHeading */}
-        <div className="flex flex-wrap justify-between gap-3 pt-5 md:pt-10 pb-4">
-          <div className="flex min-w-0 flex-col gap-3 max-w-3xl">
-            <p className="text-foreground text-2xl sm:text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em] break-words">Soluções Inovadoras para Circuitos Impressos</p>
-            <p className="text-muted-foreground text-sm sm:text-base font-normal leading-normal break-words">Fornecemos componentes de alta precisão que garantem segurança e eficiência na montagem eletrônica.</p>
+        {/* Page Header */}
+        <div className="mb-12">
+          <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+            <span className="text-sm font-medium text-primary">Catálogo Completo</span>
           </div>
+          
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-4">
+            <span className="text-foreground">Soluções </span>
+            <span className="text-gradient">Inovadoras</span>
+            <span className="text-foreground"> para Circuitos Impressos</span>
+          </h1>
+          
+          <p className="text-lg text-muted-foreground max-w-3xl">
+            Fornecemos componentes de alta precisão que garantem segurança e eficiência na montagem eletrônica.
+          </p>
         </div>
 
-        {/* Chips */}
-        <div className="flex gap-3 pb-3 pt-4 overflow-x-auto no-scrollbar touch-pan-x">
+        {/* Filter Chips */}
+        <div className="flex gap-3 pb-8 overflow-x-auto no-scrollbar">
           {filters.map(filter => (
-             <div 
+            <button 
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className={`flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg px-6 cursor-pointer transition-colors whitespace-nowrap select-none ${activeFilter === filter ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground hover:bg-primary/50 hover:text-primary-foreground'}`}
+              className={`flex h-11 shrink-0 items-center justify-center px-6 rounded-lg font-semibold text-sm transition-all whitespace-nowrap ${
+                activeFilter === filter 
+                  ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/30' 
+                  : 'bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/50'
+              }`}
             >
-              <p className="text-sm font-bold leading-normal">{filter}</p>
-            </div>
+              {filter}
+            </button>
           ))}
         </div>
 
-        {/* SectionHeader */}
-        <h2 className="text-foreground text-xl sm:text-[22px] font-bold leading-tight tracking-[-0.015em] pb-6 pt-8">Produtos em Destaque</h2>
+        {/* Featured Products */}
+        <h2 className="text-2xl font-black mb-8 text-foreground">Produtos em Destaque</h2>
 
-        {/* Card 1 */}
-        <div className="mb-6">
-          <div className="flex flex-col lg:flex-row items-stretch justify-start rounded-xl bg-card border border-border hover:border-primary/50 transition-all shadow-lg hover:shadow-2xl overflow-hidden">
-            <div 
-              className="w-full lg:w-2/5 aspect-video lg:aspect-auto lg:h-auto bg-center bg-no-repeat bg-cover" 
-              style={{backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDhPVLImq7iXRiYRV0d7sktTcUcN9Vl3lzUimAk9SE8qg28DYD4PluOM18hPb_U7x3VVW8VJlgbNIxiLu1FX3HOy8KGTKhGSmr8HF8fwsrsiu3DXQf7_hiAbG6l1DwMIB52vko5RB3pFt1sTvbJ9auKoGmkSLAxbwY3MxAkh2Lwla9P2ltjffcYTZHZ8rP0Qe_Gjvk5sXi5365WlnnM6ZmG9dHiU40RtImQVj6t66qH_nfCmpR_wVHDlzdzH_BV2KSQp_cjRTufjorx")'}}
-            ></div>
-            <div className="flex w-full lg:w-3/5 min-w-0 flex-col justify-center gap-4 p-5 sm:p-8">
-              <div className="flex flex-col gap-2">
-                <p className="text-primary text-xs sm:text-sm font-bold leading-normal uppercase tracking-wider">Tecnologia de Ponta</p>
-                <p className="text-foreground text-xl sm:text-2xl font-bold leading-tight tracking-[-0.015em] break-words">Guia-Isolante para PCB</p>
-                <p className="text-muted-foreground text-sm sm:text-base font-normal leading-relaxed break-words">Garanta alinhamento perfeito e proteção contra danos elétricos e mecânicos. Elimine falhas na inserção e remoção de PCBs com nosso material de alta resistência.</p>
+        <div className="space-y-8 mb-12">
+          {/* Product Card 1 */}
+          <div className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all glow-card">
+            <div className="flex flex-col lg:flex-row">
+              <div className="relative lg:w-2/5 aspect-video lg:aspect-auto overflow-hidden">
+                <img 
+                  src={productGuide}
+                  alt="Guia-Isolante para PCB de alta qualidade" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-background/50 to-transparent lg:hidden"></div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-2">
-                <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-primary text-xl sm:text-2xl">build_circle</span>
-                  <p className="text-muted-foreground text-sm font-medium">Fácil Instalação</p>
+              
+              <div className="flex-1 p-6 sm:p-8 lg:p-10">
+                <div className="mb-2 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+                  Tecnologia de Ponta
                 </div>
-                <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-primary text-xl sm:text-2xl">shield</span>
-                  <p className="text-muted-foreground text-sm font-medium">Material de Alta Resistência</p>
+                
+                <h3 className="text-2xl sm:text-3xl font-black mb-4 text-foreground">Guia-Isolante para PCB</h3>
+                
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Garanta alinhamento perfeito e proteção contra danos elétricos e mecânicos. Elimine falhas na inserção e remoção de PCBs com nosso material de alta resistência.
+                </p>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10">
+                      <Wrench size={20} className="text-primary" />
+                    </div>
+                    <span className="text-sm font-medium text-muted-foreground">Fácil Instalação</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10">
+                      <Shield size={20} className="text-primary" />
+                    </div>
+                    <span className="text-sm font-medium text-muted-foreground">Alta Resistência</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10">
+                      <CheckCircle size={20} className="text-primary" />
+                    </div>
+                    <span className="text-sm font-medium text-muted-foreground">Segurança Operacional</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-primary text-xl sm:text-2xl">verified_user</span>
-                  <p className="text-muted-foreground text-sm font-medium">Segurança Operacional</p>
-                </div>
-              </div>
-              <div className="flex items-end justify-start sm:justify-end mt-4">
-                <button className="flex w-full sm:w-auto min-w-[120px] cursor-pointer items-center justify-center rounded-lg min-h-[44px] h-auto py-2 px-6 bg-primary text-primary-foreground text-sm font-bold leading-normal hover:bg-primary/90 transition-colors shadow-md">
-                  <span className="text-center whitespace-normal">Saiba Mais</span>
+                
+                <button className="flex items-center justify-center h-12 px-6 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-lg transition-all shadow-lg hover:shadow-primary/30">
+                  Saiba Mais
                 </button>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Card 2 */}
-        <div className="mb-6">
-          <div className="flex flex-col lg:flex-row items-stretch justify-start rounded-xl bg-card border border-border hover:border-primary/50 transition-all shadow-lg hover:shadow-2xl overflow-hidden">
-            <div 
-              className="w-full lg:w-2/5 aspect-video lg:aspect-auto lg:h-auto bg-center bg-no-repeat bg-cover" 
-              style={{backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuAOw0Sp0QjQ_YnExLaYleHyu1upzxKA6UOgWv0V0Ri3P_6wLOKyHmg4V3LF-DiDCdQOpvh1O7jgVKc4GQ75HISfCJVduOC6T_KJvjPGjHx5AEkRz8gVUdo0luTV-Dpo06zscJ6q0phuIQidezAemEiLvAGsIzBLo9mWbUnrTEZJnQ69iwhFDdeCPDF2Blyf5QboQ4lKD1Fqiiet07fquZbFr0FJhB7EP5u9-dyviufCBlCcrYTOYNt9tm3SemIh9tCk7C0Q3bvvaNNn")'}}
-            ></div>
-            <div className="flex w-full lg:w-3/5 min-w-0 flex-col justify-center gap-4 p-5 sm:p-8">
-              <div className="flex flex-col gap-2">
-                <p className="text-primary text-xs sm:text-sm font-bold leading-normal uppercase tracking-wider">Extração Segura</p>
-                <p className="text-foreground text-xl sm:text-2xl font-bold leading-tight tracking-[-0.015em] break-words">Extratores para Circuito Impresso</p>
-                <p className="text-muted-foreground text-sm sm:text-base font-normal leading-relaxed break-words">Projetados para remover placas de circuito impresso de maneira segura e eficiente, prevenindo danos aos componentes e garantindo a integridade do sistema.</p>
+          {/* Product Card 2 */}
+          <div className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all glow-card">
+            <div className="flex flex-col lg:flex-row">
+              <div className="relative lg:w-2/5 aspect-video lg:aspect-auto overflow-hidden">
+                <img 
+                  src={productExtractor}
+                  alt="Extratores para circuitos impressos" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-background/50 to-transparent lg:hidden"></div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-2">
-                <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-primary text-xl sm:text-2xl">precision_manufacturing</span>
-                  <p className="text-muted-foreground text-sm font-medium">Design Ergonômico</p>
+              
+              <div className="flex-1 p-6 sm:p-8 lg:p-10">
+                <div className="mb-2 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+                  Extração Segura
                 </div>
-                <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-primary text-xl sm:text-2xl">bolt</span>
-                  <p className="text-muted-foreground text-sm font-medium">Proteção Antiestática</p>
+                
+                <h3 className="text-2xl sm:text-3xl font-black mb-4 text-foreground">Extratores para Circuito Impresso</h3>
+                
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Projetados para remover placas de circuito impresso de maneira segura e eficiente, prevenindo danos aos componentes e garantindo a integridade do sistema.
+                </p>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10">
+                      <Settings size={20} className="text-primary" />
+                    </div>
+                    <span className="text-sm font-medium text-muted-foreground">Design Ergonômico</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10">
+                      <Zap size={20} className="text-primary" />
+                    </div>
+                    <span className="text-sm font-medium text-muted-foreground">Proteção Antiestática</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10">
+                      <Construction size={20} className="text-primary" />
+                    </div>
+                    <span className="text-sm font-medium text-muted-foreground">Durabilidade Superior</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-primary text-xl sm:text-2xl">construction</span>
-                  <p className="text-muted-foreground text-sm font-medium">Durabilidade Superior</p>
-                </div>
-              </div>
-              <div className="flex items-end justify-start sm:justify-end mt-4">
-                <button className="flex w-full sm:w-auto min-w-[120px] cursor-pointer items-center justify-center rounded-lg min-h-[44px] h-auto py-2 px-6 bg-primary text-primary-foreground text-sm font-bold leading-normal hover:bg-primary/90 transition-colors shadow-md">
-                  <span className="text-center whitespace-normal">Saiba Mais</span>
+                
+                <button className="flex items-center justify-center h-12 px-6 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-lg transition-all shadow-lg hover:shadow-primary/30">
+                  Saiba Mais
                 </button>
               </div>
             </div>
@@ -107,54 +157,72 @@ const Products = () => {
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {/* Card 3 */}
-          <div className="flex flex-col rounded-xl bg-card p-5 sm:p-6 border border-border hover:border-primary/50 transition-all shadow-lg hover:shadow-2xl">
-            <div 
-              className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg mb-6" 
-              style={{backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuASlpKl2J-q2YKj0Oz5ZtxjxvbDDnp0sLIyAUMsd_FhtiS_SzgdtWvFDB5XJx1eAvzegfDHTX-d46hA4olnNdjLkje4XanyfUfsUIKJ4Zo8CS7aOyFKexOeof60PfGHDQ-MMRLZH8wJ2yGyVN4QzOdbrG-klQSjDTfs2kn1tdsrpu5beUy4aELK_4OB8zbW3S21qL39qipi5vLYFjx_xxERAOSyu4C3LbsBbDM9b-1QeRQKa8lDj0Me7ZDh1rhNbfPlCr7LCSvS8LeP")'}}
-            ></div>
-            <div className="flex flex-col gap-2 flex-grow min-w-0">
-              <p className="text-primary text-xs sm:text-sm font-bold uppercase tracking-wider">Acessórios</p>
-              <p className="text-foreground text-lg sm:text-xl font-bold leading-tight break-words">Componentes e Acessórios</p>
-              <p className="text-muted-foreground text-sm sm:text-base font-normal leading-relaxed flex-grow break-words">Tudo o que você precisa para uma montagem eletrônica completa e segura.</p>
+          <div className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all glow-card">
+            <div className="relative aspect-video overflow-hidden">
+              <img 
+                src={productAccessories}
+                alt="Componentes e acessórios eletrônicos" 
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
             </div>
-            <div className="mt-6 flex justify-end">
-              <button className="flex w-full sm:w-auto min-w-[120px] cursor-pointer items-center justify-center rounded-lg min-h-[44px] h-auto py-2 px-6 bg-primary text-primary-foreground text-sm font-bold hover:bg-primary/90 transition-colors shadow-md">
-                <span className="text-center whitespace-normal">Ver Acessórios</span>
+            <div className="p-6">
+              <div className="mb-2 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+                Acessórios
+              </div>
+              <h3 className="text-xl font-black mb-3 text-foreground">Componentes e Acessórios</h3>
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                Tudo o que você precisa para uma montagem eletrônica completa e segura.
+              </p>
+              <button className="flex items-center justify-center w-full h-11 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg transition-all">
+                Ver Acessórios
               </button>
             </div>
           </div>
+
           {/* Card 4 */}
-          <div className="flex flex-col rounded-xl bg-card p-5 sm:p-6 border border-border hover:border-primary/50 transition-all shadow-lg hover:shadow-2xl">
-            <div 
-              className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg mb-6" 
-              style={{backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuChTiXyalRh8n8cVvkdRKl5fHJEhmxbw152jj6H5YWDzmCXy6QBK6L8roYU2y1M0tfXE_iQQRUVe6dD0yh6dUCwYaquHebNvLBgxQtoHmObkkX_zmEPKbE6chlrZ7OC1syIvcwmHkFhrqVb8ARjB3a-4MsqwGFD1SITZW-rAyV2-Rd2p_lTBCoWOQkfWbKP311TbDfdHFxbHfCzd7PvCLTYXizJ0SOeda7qRNt9RBAuiAzrVNin0ef7yyyh05btZyn3LsT1l5rcY3tp")'}}
-            ></div>
-            <div className="flex flex-col gap-2 flex-grow min-w-0">
-              <p className="text-primary text-xs sm:text-sm font-bold uppercase tracking-wider">Serviços</p>
-              <p className="text-foreground text-lg sm:text-xl font-bold leading-tight break-words">Montagem Especializada</p>
-              <p className="text-muted-foreground text-sm sm:text-base font-normal leading-relaxed flex-grow break-words">Serviços de montagem e consultoria para otimizar seu processo produtivo.</p>
+          <div className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all glow-card">
+            <div className="relative aspect-video overflow-hidden">
+              <img 
+                src={productService}
+                alt="Serviços de montagem especializada" 
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
             </div>
-            <div className="mt-6 flex justify-end">
-              <button className="flex w-full sm:w-auto min-w-[120px] cursor-pointer items-center justify-center rounded-lg min-h-[44px] h-auto py-2 px-6 bg-primary text-primary-foreground text-sm font-bold hover:bg-primary/90 transition-colors shadow-md">
-                <span className="text-center whitespace-normal">Nossos Serviços</span>
+            <div className="p-6">
+              <div className="mb-2 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+                Serviços
+              </div>
+              <h3 className="text-xl font-black mb-3 text-foreground">Montagem Especializada</h3>
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                Serviços de montagem e consultoria para otimizar seu processo produtivo.
+              </p>
+              <button className="flex items-center justify-center w-full h-11 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg transition-all">
+                Nossos Serviços
               </button>
             </div>
           </div>
         </div>
 
-        {/* Final CTA */}
-        <div className="my-10 sm:my-16 p-6 sm:p-8 md:p-12 rounded-xl bg-card border border-border text-center flex flex-col items-center gap-4 shadow-xl">
-          <h3 className="text-foreground text-xl sm:text-2xl md:text-3xl font-bold break-words">Pronto para otimizar sua produção?</h3>
-          <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl break-words">Entre em contato para um orçamento personalizado ou para saber mais sobre nossas especificações técnicas. Nossa equipe está pronta para ajudar.</p>
-          <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-            <button className="mt-4 flex w-full sm:w-auto min-w-[84px] cursor-pointer items-center justify-center rounded-lg min-h-[48px] h-auto py-3 px-8 bg-primary text-primary-foreground text-base sm:text-lg font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors shadow-lg">
-              <span className="text-center whitespace-normal">Solicitar Orçamento Agora</span>
-            </button>
-          </a>
+        {/* CTA Section */}
+        <div className="relative rounded-3xl overflow-hidden glow-card text-center">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent"></div>
+          <div className="relative p-10 md:p-16">
+            <h3 className="text-3xl sm:text-4xl font-black mb-4 text-foreground">
+              Pronto para otimizar sua produção?
+            </h3>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+              Entre em contato para um orçamento personalizado ou para saber mais sobre nossas especificações técnicas.
+            </p>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+              <button className="inline-flex items-center gap-3 h-14 px-8 bg-primary hover:bg-primary/90 text-primary-foreground text-lg font-bold rounded-lg transition-all shadow-lg hover:shadow-primary/30 hover:scale-105">
+                <MessageCircle size={22} />
+                <span>Solicitar Orçamento</span>
+              </button>
+            </a>
+          </div>
         </div>
-
       </div>
     </main>
   );
