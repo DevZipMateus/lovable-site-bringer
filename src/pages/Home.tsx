@@ -49,7 +49,7 @@ const Home = () => {
                 <img 
                   src={logo}
                   alt="MBITTENCOURT Logo" 
-                  className="h-24 sm:h-32 md:h-40 w-auto brightness-0 invert"
+                  className="h-32 sm:h-40 md:h-48 lg:h-56 w-auto brightness-0 invert"
                 />
               </div>
               
