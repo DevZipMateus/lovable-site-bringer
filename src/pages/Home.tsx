@@ -4,7 +4,7 @@ import { Shield, Package, TruckIcon, Flag, TrendingUp, Award, ShieldCheck, Clock
 import { useToast } from "@/hooks/use-toast";
 import heroImage from '@/assets/hero-tech.jpg';
 import aboutImage from '@/assets/about-manufacturing.jpg';
-import productGuide from '@/assets/product-guide.jpg';
+import productGuide from '@/assets/product-guide.gif';
 import productExtractor from '@/assets/product-extractor.jpg';
 import productAccessories from '@/assets/product-accessories.jpg';
 import productService from '@/assets/product-service.jpg';
