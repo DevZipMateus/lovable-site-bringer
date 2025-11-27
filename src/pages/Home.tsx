@@ -9,6 +9,7 @@ import productGuide from '@/assets/product-guide.gif';
 import productExtractor from '@/assets/product-extractor.jpg';
 import guiaTechnicalSpecs from '@/assets/guia-technical-specs.jpg';
 import extractorTechnicalSpecs from '@/assets/extractor-technical-specs.gif';
+import logo from '@/assets/logo.png';
 
 const Home = () => {
   const [activeFilter, setActiveFilter] = useState('Todos');
@@ -44,6 +45,14 @@ const Home = () => {
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-10 py-20">
             <div className="max-w-4xl">
+              <div className="mb-8">
+                <img 
+                  src={logo}
+                  alt="MBITTENCOURT Logo" 
+                  className="h-16 sm:h-20 w-auto"
+                />
+              </div>
+              
               <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
                 <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
                 <span className="text-sm font-medium text-primary">Mais de 25 anos de excelência</span>
