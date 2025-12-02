@@ -172,7 +172,7 @@ const Home = () => {
               </h2>
               
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Conheça a história da MBITTENCOURT, fundada em 1996 a partir da Activel Comp. E Apar. Ltda, e nosso compromisso contínuo com a qualidade, confiabilidade e o melhor custo-benefício para nossos clientes.
+                Conheça a história da MBITTENCOURT, fundada em 1996 a partir de um setor específico de alta tecnologia da Activel, e nosso compromisso contínuo com a qualidade, confiabilidade e o melhor custo-benefício para nossos clientes.
               </p>
             </div>
           </div>
