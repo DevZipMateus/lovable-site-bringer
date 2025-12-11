@@ -323,117 +323,121 @@ const Home = () => {
             <h3 className="text-lg sm:text-xl md:text-2xl font-black mb-6 sm:mb-8 text-foreground">Produtos em Destaque</h3>
 
             <div className="space-y-6 sm:space-y-8 mb-8 sm:mb-12">
-              <div className="group relative rounded-xl sm:rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all glow-card">
-                <div className="flex flex-col lg:flex-row">
-                  <div className="relative lg:w-2/5 aspect-[4/3] sm:aspect-video lg:aspect-auto overflow-hidden bg-card/50">
-                    <img 
-                      src={productGuide}
-                      alt="Guia-Isolante para PCB de alta qualidade" 
-                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-background/50 to-transparent lg:hidden"></div>
-                  </div>
-                  
-                  <div className="flex-1 p-4 sm:p-6 md:p-8 lg:p-10">
-                    <div className="mb-2 inline-flex items-center gap-2 px-2 sm:px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] sm:text-xs font-bold uppercase tracking-wider">
-                      Tecnologia de Ponta
+              {(activeFilter === 'Todos' || activeFilter === 'Guias-Isolantes') && (
+                <div className="group relative rounded-xl sm:rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all glow-card">
+                  <div className="flex flex-col lg:flex-row">
+                    <div className="relative lg:w-2/5 aspect-[4/3] sm:aspect-video lg:aspect-auto overflow-hidden bg-card/50">
+                      <img 
+                        src={productGuide}
+                        alt="Guia-Isolante para PCB de alta qualidade" 
+                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-r from-background/50 to-transparent lg:hidden"></div>
                     </div>
                     
-                    <h4 className="text-xl sm:text-2xl md:text-3xl font-black mb-3 sm:mb-4 text-foreground">Guia-Isolante para PCB</h4>
-                    
-                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4 sm:mb-6">
-                      Garanta alinhamento perfeito e proteção contra danos elétricos e mecânicos. Elimine falhas na inserção e remoção de PCBs com nosso material de alta resistência.
-                    </p>
-                    
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
-                      <div className="flex items-center gap-2 sm:gap-3">
-                        <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary/10">
-                          <Wrench size={16} className="text-primary sm:hidden" />
-                          <Wrench size={20} className="text-primary hidden sm:block" />
-                        </div>
-                        <span className="text-xs sm:text-sm font-medium text-muted-foreground">Fácil Instalação</span>
+                    <div className="flex-1 p-4 sm:p-6 md:p-8 lg:p-10">
+                      <div className="mb-2 inline-flex items-center gap-2 px-2 sm:px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+                        Tecnologia de Ponta
                       </div>
-                      <div className="flex items-center gap-2 sm:gap-3">
-                        <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary/10">
-                          <Shield size={16} className="text-primary sm:hidden" />
-                          <Shield size={20} className="text-primary hidden sm:block" />
+                      
+                      <h4 className="text-xl sm:text-2xl md:text-3xl font-black mb-3 sm:mb-4 text-foreground">Guia-Isolante para PCB</h4>
+                      
+                      <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4 sm:mb-6">
+                        Garanta alinhamento perfeito e proteção contra danos elétricos e mecânicos. Elimine falhas na inserção e remoção de PCBs com nosso material de alta resistência.
+                      </p>
+                      
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
+                        <div className="flex items-center gap-2 sm:gap-3">
+                          <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary/10">
+                            <Wrench size={16} className="text-primary sm:hidden" />
+                            <Wrench size={20} className="text-primary hidden sm:block" />
+                          </div>
+                          <span className="text-xs sm:text-sm font-medium text-muted-foreground">Fácil Instalação</span>
                         </div>
-                        <span className="text-xs sm:text-sm font-medium text-muted-foreground">Alta Resistência</span>
-                      </div>
-                      <div className="flex items-center gap-2 sm:gap-3">
-                        <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary/10">
-                          <CheckCircle size={16} className="text-primary sm:hidden" />
-                          <CheckCircle size={20} className="text-primary hidden sm:block" />
+                        <div className="flex items-center gap-2 sm:gap-3">
+                          <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary/10">
+                            <Shield size={16} className="text-primary sm:hidden" />
+                            <Shield size={20} className="text-primary hidden sm:block" />
+                          </div>
+                          <span className="text-xs sm:text-sm font-medium text-muted-foreground">Alta Resistência</span>
                         </div>
-                        <span className="text-xs sm:text-sm font-medium text-muted-foreground">Segurança Operacional</span>
+                        <div className="flex items-center gap-2 sm:gap-3">
+                          <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary/10">
+                            <CheckCircle size={16} className="text-primary sm:hidden" />
+                            <CheckCircle size={20} className="text-primary hidden sm:block" />
+                          </div>
+                          <span className="text-xs sm:text-sm font-medium text-muted-foreground">Segurança Operacional</span>
+                        </div>
                       </div>
+                      
+                      <button 
+                        onClick={() => setShowGuiaSpecs(true)}
+                        className="flex items-center justify-center h-10 sm:h-12 px-4 sm:px-6 bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base font-bold rounded-lg transition-all shadow-lg hover:shadow-primary/30"
+                      >
+                        Saiba Mais
+                      </button>
                     </div>
-                    
-                    <button 
-                      onClick={() => setShowGuiaSpecs(true)}
-                      className="flex items-center justify-center h-10 sm:h-12 px-4 sm:px-6 bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base font-bold rounded-lg transition-all shadow-lg hover:shadow-primary/30"
-                    >
-                      Saiba Mais
-                    </button>
                   </div>
                 </div>
-              </div>
+              )}
 
-              <div className="group relative rounded-xl sm:rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all glow-card">
-                <div className="flex flex-col lg:flex-row">
-                  <div className="relative lg:w-2/5 aspect-[4/3] sm:aspect-video lg:aspect-auto overflow-hidden">
-                    <img 
-                      src={productExtractor}
-                      alt="Extratores para circuitos impressos" 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-background/50 to-transparent lg:hidden"></div>
-                  </div>
-                  
-                  <div className="flex-1 p-4 sm:p-6 md:p-8 lg:p-10">
-                    <div className="mb-2 inline-flex items-center gap-2 px-2 sm:px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] sm:text-xs font-bold uppercase tracking-wider">
-                      Extração Segura
+              {(activeFilter === 'Todos' || activeFilter === 'Extratores') && (
+                <div className="group relative rounded-xl sm:rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all glow-card">
+                  <div className="flex flex-col lg:flex-row">
+                    <div className="relative lg:w-2/5 aspect-[4/3] sm:aspect-video lg:aspect-auto overflow-hidden">
+                      <img 
+                        src={productExtractor}
+                        alt="Extratores para circuitos impressos" 
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-r from-background/50 to-transparent lg:hidden"></div>
                     </div>
                     
-                    <h4 className="text-xl sm:text-2xl md:text-3xl font-black mb-3 sm:mb-4 text-foreground">Extratores para Circuito Impresso</h4>
-                    
-                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4 sm:mb-6">
-                      Projetados para remover placas de circuito impresso de maneira segura e eficiente, prevenindo danos aos componentes e garantindo a integridade do sistema.
-                    </p>
-                    
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
-                      <div className="flex items-center gap-2 sm:gap-3">
-                        <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary/10">
-                          <Settings size={16} className="text-primary sm:hidden" />
-                          <Settings size={20} className="text-primary hidden sm:block" />
-                        </div>
-                        <span className="text-xs sm:text-sm font-medium text-muted-foreground">Design Ergonômico</span>
+                    <div className="flex-1 p-4 sm:p-6 md:p-8 lg:p-10">
+                      <div className="mb-2 inline-flex items-center gap-2 px-2 sm:px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+                        Extração Segura
                       </div>
-                      <div className="flex items-center gap-2 sm:gap-3">
-                        <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary/10">
-                          <Zap size={16} className="text-primary sm:hidden" />
-                          <Zap size={20} className="text-primary hidden sm:block" />
+                      
+                      <h4 className="text-xl sm:text-2xl md:text-3xl font-black mb-3 sm:mb-4 text-foreground">Extratores para Circuito Impresso</h4>
+                      
+                      <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4 sm:mb-6">
+                        Projetados para remover placas de circuito impresso de maneira segura e eficiente, prevenindo danos aos componentes e garantindo a integridade do sistema.
+                      </p>
+                      
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
+                        <div className="flex items-center gap-2 sm:gap-3">
+                          <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary/10">
+                            <Settings size={16} className="text-primary sm:hidden" />
+                            <Settings size={20} className="text-primary hidden sm:block" />
+                          </div>
+                          <span className="text-xs sm:text-sm font-medium text-muted-foreground">Design Ergonômico</span>
                         </div>
-                        <span className="text-xs sm:text-sm font-medium text-muted-foreground">Proteção Antiestática</span>
-                      </div>
-                      <div className="flex items-center gap-2 sm:gap-3">
-                        <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary/10">
-                          <Construction size={16} className="text-primary sm:hidden" />
-                          <Construction size={20} className="text-primary hidden sm:block" />
+                        <div className="flex items-center gap-2 sm:gap-3">
+                          <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary/10">
+                            <Zap size={16} className="text-primary sm:hidden" />
+                            <Zap size={20} className="text-primary hidden sm:block" />
+                          </div>
+                          <span className="text-xs sm:text-sm font-medium text-muted-foreground">Proteção Antiestática</span>
                         </div>
-                        <span className="text-xs sm:text-sm font-medium text-muted-foreground">Durabilidade Superior</span>
+                        <div className="flex items-center gap-2 sm:gap-3">
+                          <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary/10">
+                            <Construction size={16} className="text-primary sm:hidden" />
+                            <Construction size={20} className="text-primary hidden sm:block" />
+                          </div>
+                          <span className="text-xs sm:text-sm font-medium text-muted-foreground">Durabilidade Superior</span>
+                        </div>
                       </div>
+                      
+                      <button 
+                        onClick={() => setShowExtractorSpecs(true)}
+                        className="flex items-center justify-center h-10 sm:h-12 px-4 sm:px-6 bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base font-bold rounded-lg transition-all shadow-lg hover:shadow-primary/30"
+                      >
+                        Saiba Mais
+                      </button>
                     </div>
-                    
-                    <button 
-                      onClick={() => setShowExtractorSpecs(true)}
-                      className="flex items-center justify-center h-10 sm:h-12 px-4 sm:px-6 bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base font-bold rounded-lg transition-all shadow-lg hover:shadow-primary/30"
-                    >
-                      Saiba Mais
-                    </button>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
 
 
