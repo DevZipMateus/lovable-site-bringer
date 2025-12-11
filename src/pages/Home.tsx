@@ -10,34 +10,28 @@ import productExtractor from '@/assets/product-extractor.jpg';
 import guiaTechnicalSpecs from '@/assets/guia-technical-specs.jpg';
 import extractorTechnicalSpecs from '@/assets/extractor-technical-specs.gif';
 import logo from '@/assets/logo.png';
-
 const Home = () => {
   const [activeFilter, setActiveFilter] = useState('Todos');
   const [showGuiaSpecs, setShowGuiaSpecs] = useState(false);
   const [showExtractorSpecs, setShowExtractorSpecs] = useState(false);
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const filters = ['Todos', 'Guias-Isolantes', 'Extratores'];
   const whatsappLink = "https://wa.me/552125683966?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20MBITTENCOURT.";
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
       title: "Mensagem Enviada!",
-      description: "Obrigado pela sua mensagem! Entraremos em contato em breve.",
+      description: "Obrigado pela sua mensagem! Entraremos em contato em breve."
     });
   };
-
-  return (
-    <main className="flex flex-1 mx-auto w-full min-w-0">
+  return <main className="flex flex-1 mx-auto w-full min-w-0">
       <div className="flex flex-col w-full flex-1">
         {/* Hero Section */}
         <section id="inicio" className="relative min-h-[100svh] md:min-h-[90vh] flex items-center justify-center overflow-hidden scroll-mt-20">
           <div className="absolute inset-0">
-            <img 
-              src={heroImage}
-              alt="Tecnologia de ponta em circuitos impressos" 
-              className="w-full h-full object-cover"
-            />
+            <img src={heroImage} alt="Tecnologia de ponta em circuitos impressos" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background"></div>
           </div>
 
@@ -46,11 +40,7 @@ const Home = () => {
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-16 md:py-20">
             <div className="max-w-4xl mx-auto text-center md:text-left md:mx-0">
               <div className="mb-6 sm:mb-8 flex justify-center md:justify-center">
-                <img 
-                  src={logo}
-                  alt="MBITTENCOURT Logo" 
-                  className="h-24 xs:h-28 sm:h-36 md:h-44 lg:h-56 w-auto brightness-0 invert"
-                />
+                <img src={logo} alt="MBITTENCOURT Logo" className="h-24 xs:h-28 sm:h-36 md:h-44 lg:h-56 w-auto brightness-0 invert" />
               </div>
               
               <div className="mb-4 sm:mb-6 inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
@@ -155,11 +145,7 @@ const Home = () => {
         {/* About Section */}
         <section id="sobre" className="relative min-h-[60vh] sm:min-h-[70vh] flex items-center justify-center overflow-hidden scroll-mt-20">
           <div className="absolute inset-0">
-            <img 
-              src={aboutImage}
-              alt="Instalações modernas de manufatura MBITTENCOURT" 
-              className="w-full h-full object-cover"
-            />
+            <img src={aboutImage} alt="Instalações modernas de manufatura MBITTENCOURT" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/85 to-background"></div>
           </div>
 
@@ -305,33 +291,16 @@ const Home = () => {
             </div>
 
             <div className="flex gap-2 sm:gap-3 pb-6 sm:pb-8 overflow-x-auto no-scrollbar">
-              {filters.map(filter => (
-                <button 
-                  key={filter}
-                  onClick={() => setActiveFilter(filter)}
-                  className={`flex h-9 sm:h-11 shrink-0 items-center justify-center px-4 sm:px-6 rounded-lg font-semibold text-xs sm:text-sm transition-all whitespace-nowrap ${
-                    activeFilter === filter 
-                      ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/30' 
-                      : 'bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/50'
-                  }`}
-                >
-                  {filter}
-                </button>
-              ))}
+              {filters.map(filter => {})}
             </div>
 
             <h3 className="text-lg sm:text-xl md:text-2xl font-black mb-6 sm:mb-8 text-foreground">Produtos em Destaque</h3>
 
             <div className="space-y-6 sm:space-y-8 mb-8 sm:mb-12">
-              {(activeFilter === 'Todos' || activeFilter === 'Guias-Isolantes') && (
-                <div className="group relative rounded-xl sm:rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all glow-card">
+              {(activeFilter === 'Todos' || activeFilter === 'Guias-Isolantes') && <div className="group relative rounded-xl sm:rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all glow-card">
                   <div className="flex flex-col lg:flex-row">
                     <div className="relative lg:w-2/5 aspect-[4/3] sm:aspect-video lg:aspect-auto overflow-hidden bg-card/50">
-                      <img 
-                        src={productGuide}
-                        alt="Guia-Isolante para PCB de alta qualidade" 
-                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
-                      />
+                      <img src={productGuide} alt="Guia-Isolante para PCB de alta qualidade" className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700" />
                       <div className="absolute inset-0 bg-gradient-to-r from-background/50 to-transparent lg:hidden"></div>
                     </div>
                     
@@ -370,26 +339,17 @@ const Home = () => {
                         </div>
                       </div>
                       
-                      <button 
-                        onClick={() => setShowGuiaSpecs(true)}
-                        className="flex items-center justify-center h-10 sm:h-12 px-4 sm:px-6 bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base font-bold rounded-lg transition-all shadow-lg hover:shadow-primary/30"
-                      >
+                      <button onClick={() => setShowGuiaSpecs(true)} className="flex items-center justify-center h-10 sm:h-12 px-4 sm:px-6 bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base font-bold rounded-lg transition-all shadow-lg hover:shadow-primary/30">
                         Saiba Mais
                       </button>
                     </div>
                   </div>
-                </div>
-              )}
+                </div>}
 
-              {(activeFilter === 'Todos' || activeFilter === 'Extratores') && (
-                <div className="group relative rounded-xl sm:rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all glow-card">
+              {(activeFilter === 'Todos' || activeFilter === 'Extratores') && <div className="group relative rounded-xl sm:rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all glow-card">
                   <div className="flex flex-col lg:flex-row">
                     <div className="relative lg:w-2/5 aspect-[4/3] sm:aspect-video lg:aspect-auto overflow-hidden">
-                      <img 
-                        src={productExtractor}
-                        alt="Extratores para circuitos impressos" 
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
+                      <img src={productExtractor} alt="Extratores para circuitos impressos" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                       <div className="absolute inset-0 bg-gradient-to-r from-background/50 to-transparent lg:hidden"></div>
                     </div>
                     
@@ -428,16 +388,12 @@ const Home = () => {
                         </div>
                       </div>
                       
-                      <button 
-                        onClick={() => setShowExtractorSpecs(true)}
-                        className="flex items-center justify-center h-10 sm:h-12 px-4 sm:px-6 bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base font-bold rounded-lg transition-all shadow-lg hover:shadow-primary/30"
-                      >
+                      <button onClick={() => setShowExtractorSpecs(true)} className="flex items-center justify-center h-10 sm:h-12 px-4 sm:px-6 bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base font-bold rounded-lg transition-all shadow-lg hover:shadow-primary/30">
                         Saiba Mais
                       </button>
                     </div>
                   </div>
-                </div>
-              )}
+                </div>}
             </div>
 
 
@@ -540,62 +496,31 @@ const Home = () => {
                       <label className="block text-xs sm:text-sm font-semibold text-foreground mb-1.5 sm:mb-2" htmlFor="name">
                         Nome Completo
                       </label>
-                      <input 
-                        className="w-full h-10 sm:h-12 px-3 sm:px-4 rounded-lg bg-background border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm sm:text-base" 
-                        id="name" 
-                        name="name" 
-                        placeholder="Seu nome" 
-                        type="text"
-                        required
-                      />
+                      <input className="w-full h-10 sm:h-12 px-3 sm:px-4 rounded-lg bg-background border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm sm:text-base" id="name" name="name" placeholder="Seu nome" type="text" required />
                     </div>
 
                     <div>
                       <label className="block text-xs sm:text-sm font-semibold text-foreground mb-1.5 sm:mb-2" htmlFor="email">
                         E-mail
                       </label>
-                      <input 
-                        className="w-full h-10 sm:h-12 px-3 sm:px-4 rounded-lg bg-background border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm sm:text-base" 
-                        id="email" 
-                        name="email" 
-                        placeholder="seu.email@exemplo.com" 
-                        type="email"
-                        required
-                      />
+                      <input className="w-full h-10 sm:h-12 px-3 sm:px-4 rounded-lg bg-background border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm sm:text-base" id="email" name="email" placeholder="seu.email@exemplo.com" type="email" required />
                     </div>
 
                     <div>
                       <label className="block text-xs sm:text-sm font-semibold text-foreground mb-1.5 sm:mb-2" htmlFor="subject">
                         Assunto
                       </label>
-                      <input 
-                        className="w-full h-10 sm:h-12 px-3 sm:px-4 rounded-lg bg-background border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm sm:text-base" 
-                        id="subject" 
-                        name="subject" 
-                        placeholder="Sobre o que deseja falar?" 
-                        type="text"
-                        required
-                      />
+                      <input className="w-full h-10 sm:h-12 px-3 sm:px-4 rounded-lg bg-background border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm sm:text-base" id="subject" name="subject" placeholder="Sobre o que deseja falar?" type="text" required />
                     </div>
 
                     <div>
                       <label className="block text-xs sm:text-sm font-semibold text-foreground mb-1.5 sm:mb-2" htmlFor="message">
                         Mensagem
                       </label>
-                      <textarea 
-                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg bg-background border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none text-sm sm:text-base" 
-                        id="message" 
-                        name="message" 
-                        placeholder="Escreva sua mensagem..." 
-                        rows={4}
-                        required
-                      ></textarea>
+                      <textarea className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg bg-background border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none text-sm sm:text-base" id="message" name="message" placeholder="Escreva sua mensagem..." rows={4} required></textarea>
                     </div>
 
-                    <button 
-                      type="submit"
-                      className="w-full flex items-center justify-center gap-2 h-12 sm:h-14 bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base font-bold rounded-lg transition-all shadow-lg hover:shadow-primary/30 hover:scale-[1.02]"
-                    >
+                    <button type="submit" className="w-full flex items-center justify-center gap-2 h-12 sm:h-14 bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base font-bold rounded-lg transition-all shadow-lg hover:shadow-primary/30 hover:scale-[1.02]">
                       <Send size={18} className="sm:hidden" />
                       <Send size={20} className="hidden sm:block" />
                       <span>Enviar Mensagem</span>
@@ -607,17 +532,9 @@ const Home = () => {
 
             {/* Map */}
             <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-border aspect-[16/9] sm:aspect-[21/9] glow-card">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.8193829247287!2d-43.231!3d-22.9213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997e5e3c5c5c5c5c%3A0x5c5c5c5c5c5c5c5c!2sRua%20Haddock%20Lobo%2C%20200%20-%20Tijuca%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2020260-132!5e0!3m2!1spt-BR!2sbr!4v1234567890!5m2!1spt-BR!2sbr"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={false}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Localização da MBITTENCOURT no Google Maps"
-                className="absolute inset-0"
-              />
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.8193829247287!2d-43.231!3d-22.9213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997e5e3c5c5c5c5c%3A0x5c5c5c5c5c5c5c5c!2sRua%20Haddock%20Lobo%2C%20200%20-%20Tijuca%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2020260-132!5e0!3m2!1spt-BR!2sbr!4v1234567890!5m2!1spt-BR!2sbr" width="100%" height="100%" style={{
+              border: 0
+            }} allowFullScreen={false} loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Localização da MBITTENCOURT no Google Maps" className="absolute inset-0" />
             </div>
           </div>
         </section>
@@ -653,19 +570,11 @@ const Home = () => {
           <DialogContent className="max-w-5xl max-h-[90vh] p-0 overflow-hidden">
             <DialogTitle className="sr-only">Especificações Técnicas - Guia Isolante</DialogTitle>
             <div className="relative w-full h-full">
-              <button
-                onClick={() => setShowGuiaSpecs(false)}
-                className="absolute top-4 right-4 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm border border-border hover:bg-background transition-all"
-                aria-label="Fechar"
-              >
+              <button onClick={() => setShowGuiaSpecs(false)} className="absolute top-4 right-4 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm border border-border hover:bg-background transition-all" aria-label="Fechar">
                 <X size={20} />
               </button>
               <div className="overflow-auto max-h-[90vh] p-6">
-                <img
-                  src={guiaTechnicalSpecs}
-                  alt="Especificações Técnicas - Guias Isolantes AC101/AC102/AC103/AC104"
-                  className="w-full h-auto"
-                />
+                <img src={guiaTechnicalSpecs} alt="Especificações Técnicas - Guias Isolantes AC101/AC102/AC103/AC104" className="w-full h-auto" />
               </div>
             </div>
           </DialogContent>
@@ -676,26 +585,16 @@ const Home = () => {
           <DialogContent className="max-w-3xl max-h-[90vh] p-0 overflow-hidden">
             <DialogTitle className="sr-only">Especificações Técnicas - Extrator AC201</DialogTitle>
             <div className="relative w-full h-full">
-              <button
-                onClick={() => setShowExtractorSpecs(false)}
-                className="absolute top-4 right-4 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm border border-border hover:bg-background transition-all"
-                aria-label="Fechar"
-              >
+              <button onClick={() => setShowExtractorSpecs(false)} className="absolute top-4 right-4 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm border border-border hover:bg-background transition-all" aria-label="Fechar">
                 <X size={20} />
               </button>
               <div className="overflow-auto max-h-[90vh] p-6">
-                <img
-                  src={extractorTechnicalSpecs}
-                  alt="Especificações Técnicas - Extrator AC201"
-                  className="w-full h-auto"
-                />
+                <img src={extractorTechnicalSpecs} alt="Especificações Técnicas - Extrator AC201" className="w-full h-auto" />
               </div>
             </div>
           </DialogContent>
         </Dialog>
       </div>
-    </main>
-  );
+    </main>;
 };
-
 export default Home;
